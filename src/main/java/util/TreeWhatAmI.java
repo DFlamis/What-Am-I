@@ -69,9 +69,15 @@ public class TreeWhatAmI<E>
         }
     }
 
+    //Arreglar
     public void insertQuestion(E data, String side)
     {
-
+        if ( data != null )
+        {
+            if ( side.equals("si") && !isLeftNull() ) this.left.insertAnswer(data, side);
+            
+            if ( side.equals("no") && !isRightNull() ) this.right.insertAnswer(data, side);
+        }
     }
 
     public void cheat()
@@ -104,19 +110,20 @@ public class TreeWhatAmI<E>
         }
     }
 
-    public void tryGuess(int pointer)
+    public void tryGuess(int pointer, QuestionBank quest)
     {
-        System.out.print(pointer + ": " + this.data + " -> " );
+        if( !isAnswer() ) System.out.print( quest.getQuestion(pointer) + ": " );
         Scanner sc = new Scanner( System.in );
         String answer = "";
 
         if( !isAnswer() ) answer = sc.next();
+        else System.out.print("Piensas en: " + this.data);
 
         if ( data != null )
         {
-            if ( answer.equals("si") && !isLeftNull() && !isAnswer() ) this.left.tryGuess( pointer + 1 );
+            if ( answer.equals("si") && !isLeftNull() && !isAnswer() ) this.left.tryGuess( pointer + 1,quest );
             
-            if ( answer.equals("no") && !isRightNull() && !isAnswer() ) this.right.tryGuess( pointer + 1 );
+            if ( answer.equals("no") && !isRightNull() && !isAnswer() ) this.right.tryGuess( pointer + 1,quest );
         }
     }
 

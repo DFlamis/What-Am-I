@@ -30,17 +30,17 @@ public class RusticInterface
         //level 3
             //Izquierda
                 //Izquierda
-                root.left.left.left = new TreeWhatAmI<String>("3 Y (NULL)");
-                root.left.left.right = new TreeWhatAmI<String>("3 N (SI C)");
+                root.left.left.left = new TreeWhatAmI<String>("3 Y (No se)");
+                root.left.left.right = new TreeWhatAmI<String>("3 N (Elefante)");
                 //Derecha
-                root.left.right.left = new TreeWhatAmI<String>("3 Y (SI C)");
+                root.left.right.left = new TreeWhatAmI<String>("3 Y (Ornitorrinco)");
                 root.left.right.right = new TreeWhatAmI<String>("3 N");
             //Derecha
                 //Izquierda
-                root.right.left.left = new TreeWhatAmI<String>("3 Y (SI C)");
-                root.right.left.right = new TreeWhatAmI<String>("3 N (SI C)");
+                root.right.left.left = new TreeWhatAmI<String>("3 Y (Delfin)");
+                root.right.left.right = new TreeWhatAmI<String>("3 N (Ballena)");
                 //Derecha
-                root.right.right.left = new TreeWhatAmI<String>("3 Y (NULL)");
+                root.right.right.left = new TreeWhatAmI<String>("3 Y (No se)");
                 root.right.right.right = new TreeWhatAmI<String>("3 N");
 
         //level 4
@@ -55,7 +55,7 @@ public class RusticInterface
                     
                     //Derecha
                     root.left.right.right.left = new TreeWhatAmI<String>("4 Y");
-                    root.left.right.right.right = new TreeWhatAmI<String>("4 N (NULL)");
+                    root.left.right.right.right = new TreeWhatAmI<String>("4 N (No se)");
             //Derecha
                 //Izquierda
                     //Izquierda
@@ -66,8 +66,8 @@ public class RusticInterface
                     //Izquierda
 
                     //Derecha
-                    root.right.right.right.left = new TreeWhatAmI<String>("4 Y (SI C)");
-                    root.right.right.right.right = new TreeWhatAmI<String>("4 N (NULL)");
+                    root.right.right.right.left = new TreeWhatAmI<String>("4 Y (Mantarraya)");
+                    root.right.right.right.right = new TreeWhatAmI<String>("4 N (No se)");
         
         //level 5
             //Izquierda
@@ -118,16 +118,16 @@ public class RusticInterface
                         //Derecha
         //level 6
                         root.left.right.right.left.left = new TreeWhatAmI<String>("6 Y (NULL)");
-                        root.left.right.right.left.right = new TreeWhatAmI<String>("6 N (SI C)");
+                        root.left.right.right.left.right = new TreeWhatAmI<String>("6 N (Boa)");
     }
 
     public void generateQuestions( QuestionBank<String> quest )
     {
-        quest.addQuestion("DFlamis 0");
-        quest.addQuestion("DFlamis 1");
-        quest.addQuestion("DFlamis 2");
-        quest.addQuestion("DFlamis 3");
-        quest.addQuestion("DFlamis 4");
+        quest.addQuestion("Es terrestre??");
+        quest.addQuestion("Es viviparo??");
+        quest.addQuestion("Es pequeno??");
+        quest.addQuestion("Tiene cola??");
+        quest.addQuestion("Tiene patas??");
         quest.addQuestion("DFlamis 5");
         quest.addQuestion("DFlamis 6");
     }
@@ -148,6 +148,6 @@ public class RusticInterface
 
         // root.preOrder();
         
-        root.tryGuess(0);        
+        root.tryGuess(0, quest);        
     }
 }
